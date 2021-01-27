@@ -5,7 +5,7 @@ from flask import Flask, render_template,redirect,flash,url_for,session,logging,
 from flask_mysqldb import MySQL
 from wtforms import Form,StringField,TextAreaField,PasswordField, form,validators
 from passlib.hash import sha256_crypt
-from functools import wraps # decoratör kontrolü için
+from functools import wraps # for decorator control
 from flask_wtf import FlaskForm
 
 
