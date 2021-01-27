@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+<title>Detay</title>
+{% endblock %}
+
+{% block body %}
+
+{% if art %}
+<br>
+<h3><strong>{{art.title}}</strong></h3>
+<hr>
+<h6>Yazar : {{art.author}}</h6>
+<hr>
+<h6>Yayın Tarihi : {{art.createdDate}}</h6>
+<hr>
+<p>{{art.content | safe}}</p> <!--safe : içerik html dökümanı olarak gözkmemesi için.-->
+{% else %}
+<div class="alert alert-warning">Seçilen makale bulunamadı.!</div>
+{% endif %}
+
+{% endblock %}

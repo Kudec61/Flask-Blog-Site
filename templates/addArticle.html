@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block title %}
+<title>Yeni Makale</title>
+{% endblock %}
+
+{% block body %}
+<br>
+<small><strong> Sayın {{session["username"]}},</strong> yeni bir makale yayınlamak üzeresiniz.</small>
+<hr>
+{% from "includes/formhelpers.html" import render_field %}
+
+<form method="post">
+    {{ render_field(form.title, class ="form-control",placeholder = "Makale Başlığı") }}
+    {{ render_field(form.content, class ="form-control",placeholder = "Makale İçeriği") }}
+    <button type="submit" class="btn btn-primary">Makale Ekle</button>
+</form>
+{% endblock %}

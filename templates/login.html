@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+<title>Giriş</title>
+{% endblock %}
+
+{% block body %}
+<br>
+<h6>GarageBand Forum Giriş</h6>
+<hr>
+
+{% from "includes/formhelpers.html" import render_field %}
+
+<form method="post">
+    {{ render_field(form.username, class ="form-control",placeholder="Kullanıcı Adı") }}
+    {{ render_field(form.password, class ="form-control",placeholder="Parola") }}
+    <button type="submit" class="btn btn-primary">Giriş</button>
+</form>
+
+
+{% endblock %}

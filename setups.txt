@@ -1,0 +1,13 @@
+mySQL ve Flask bağlantısı kurmak için
+"pip install flask-mysqldb"
+---
+Form sınıfları kurulumu
+"pip install Flask-WTF"
+---
+Users tablosundaki parolaların şifrelenmesi için
+"pip install passlib"
+"pip install flask-hashing"
+---
+Email doğrulamaları için
+"pip install email_validator
+---

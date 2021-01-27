@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+<title>Kayıt</title>
+{% endblock %}
+
+{% block body %}
+<br>
+<h6>GarageBand Forum Üyelik</h6>
+<hr>
+<!--Form sayfada gösteriliyor-->
+{% from "includes/formhelpers.html" import render_field %}
+
+<form method="post">
+    {{ render_field(form.name, class ="form-control",placeholder="Ad Soyad") }}
+    {{ render_field(form.username, class ="form-control",placeholder="Kullanıcı Adı") }}
+    {{ render_field(form.email, class ="form-control",placeholder="Email") }}
+    {{ render_field(form.password, class ="form-control",placeholder="Parola") }}
+    {{ render_field(form.confirm, class ="form-control",placeholder="Parola Doğrula") }} 
+    <br>
+    <button type="submit" class="btn btn-success">Kayıt Ol</button>
+</form>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

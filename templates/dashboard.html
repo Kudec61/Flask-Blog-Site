@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+<title>Bana Özel</title>
+{% endblock %}
+
+<!--BODY START-->
+{% block body %}
+<br>
+<h6>Bana Özel</h6>
+<small>Hoş geldin, {{session["username"]}}</small>
+<hr>
+<a href="/addArticle" class="btn btn-success">Makale Oluştur</a>
+<hr>
+
+{% if specialArticles %}
+
+<table class="table table-hover">
+    <thead class="table-light">
+      <tr>
+        <th scope="col"><small> <strong>NO</strong></small></th>
+        <th scope="col"><small> <strong>BAŞLIK</strong></small></th>
+        <th scope="col"><small> <strong>YAZAR</strong></small></th>
+        <th scope="col"><small> <strong>YAYIN TARİHİ</strong></small></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for specialArt in specialArticles %}
+        <tr>
+            <th scope="row"> <a href="/details/{{specialArt.id}}">{{specialArt.id}}</a> </th>
+            <td> <a href="/details/{{specialArt.id}}">{{specialArt.title}}</a> </td>
+            <td>{{specialArt.author}}</td>
+            <td>{{specialArt.createdDate}}</td>
+            <td><a href="/edit/{{specialArt.id}}" class="btn btn-warning">Güncelle</a></td>
+            <td><a href="#" class="btn btn-info">Paylaş</a></td>
+            <td><a href="/delete/{{specialArt.id}}" class="btn btn-danger">Sil</a></td>
+          </tr>
+        {% endfor %}  
+
+    </tbody>
+  </table>
+
+{% else %}
+<div class="alert alert-danger">
+ Henüz makale yayınlamadınız.!
+</div>
+{% endif %}
+
+{% endblock %}
+<!--BODY FINISH-->

@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block title %}
+<title>Makaleler</title>
+{% endblock %}
+
+{% block body %}
+<script src="myJS.js"></script>
+
+<br>
+ <a href="/addArticle" class="btn btn-success">Makale Oluştur</a><br>
+  <small>Yayınlanan toplam makale : <strong>{{result}}</strong></small>
+<hr>
+<form action="/search" method = "post">
+  <div class="input-group mb-3">
+     <button onclick="myFunction()" class="btn btn-primary" type="submit">Ara</button> &nbsp; 
+      <input type="search"  name="searchWord" class="form-control" placeholder="Makale başlığı ile arama yapabilirsiniz." >
+      
+    </div>
+</form>
+<hr>
+
+
+
+{% if articles %} <!--articles değeri blog.py den geldi mi gelmedi mi ?-->
+
+
+<table class="table table-hover">
+  <thead class="table-light">
+    <tr>
+      <th scope="col"><small> <strong>NO</strong></small></th>
+      <th scope="col"><small> <strong>BAŞLIK</strong></small></th>
+      <th scope="col"><small> <strong>YAZAR</strong></small></th>
+      <th scope="col"><small> <strong>YAYIN TARİHİ</strong></small></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for article in articles %}
+    <tr>
+      <th scope="row"> <a href="/details/{{article.id}}">{{article.id}}</a> </th>
+      <td> <a href="/details/{{article.id}}">{{article.title}}</a> </td>
+      <td>{{article.author}}</td>
+      <td>{{article.createdDate}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+   
+
+{% else %}
+<div class="alert alert-danger">
+Bu blog'da henüz makale yayınlanmamıştır.
+</div>
+
+{% endif %}
+
+
+
+
+
+
+{% endblock %}

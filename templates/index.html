@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+    <title>Blog</title>
+    {% endblock %}
+    
+</head>
+<body>
+  
+    {% block body %}
+
+    {% if session["login"] %}
+    <br>
+    <h6>GarageBand Forum</h6>
+    <hr>
+    
+    {% else %}
+
+    <div class="jumbotron">
+      <h1 class="display-6">GarageBand Forum Sayfasına Hoşgeldiniz !</h1>
+      <p class="lead"> <b>Üye olarak makalelere bakabilir ve forum üyelerine sorular sorabilirsiniz.</b></p>
+      <hr class="my-6">
+      <p class="lead">
+        <a class="btn btn-primary btn-lg" href="register" role="button">Üye Ol</a>
+      </p>
+    </div>
+    
+    {% endif %}
+   
+    
+
+    {% endblock %}
+
+    
+    
+    
+</body>
+</html>
